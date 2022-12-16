@@ -1,7 +1,7 @@
 ---
 title: 练习 1-1 解答
 date: 2022-12-15 21:17:00
-description: 插入排序以及基础算法分析相关的习题
+description: 插入排序以及基础增量算法分析相关的习题解答
 ---
 
 #### Problem 1 (教材习题 2.1-3)
@@ -16,7 +16,7 @@ description: 插入排序以及基础算法分析相关的习题
 
 ##### Solution
 
-<iframe src="/pseudocode/week1/linear-search.html" frameborder="no" marginwidth="0" width="100%" height="165px" marginheight="0" scrolling="auto"></iframe>
+<iframe src="/pseudocode/week1/linear-search.html" frameborder="no" marginwidth="0" width="100%" height="175px" marginheight="0" scrolling="auto"></iframe>
 
 循环不变式：第1-5行循环的每次迭代开始前，不存在下标 $1 \le j < i$ 使得 $A[j] = v$ 。
 
@@ -38,7 +38,7 @@ description: 插入排序以及基础算法分析相关的习题
 
 ##### Solution
 
-<iframe src="/pseudocode/week1/binary-addition.html" frameborder="no" marginwidth="0" width="100%" height="290px" marginheight="0" scrolling="auto"></iframe>
+<iframe src="/pseudocode/week1/binary-addition.html" frameborder="no" marginwidth="0" width="100%" height="300px" marginheight="0" scrolling="auto"></iframe>
 
 > 这里默认数组元素从左往右排列，表示数字时左边为高位，右边为低位。如果你和我的方向相反，但是意思一样的话也是可以的。
 
@@ -52,7 +52,7 @@ description: 插入排序以及基础算法分析相关的习题
 
 ##### Solution
 
-<iframe src="/pseudocode/week1/selection-sort.html" frameborder="no" marginwidth="0" width="100%" height="250px" marginheight="0" scrolling="auto"></iframe>
+<iframe src="/pseudocode/week1/selection-sort.html" frameborder="no" marginwidth="0" width="100%" height="260px" marginheight="0" scrolling="auto"></iframe>
 
 该算法维持的循环不变式是：第1-8行循环的每次迭代开始前，$A[1..i-1]$ 按照从小到大的顺序包含了 $A$ 中前 $i - 1$ 小的元素。(不变式的证明读者可自行完成)
 

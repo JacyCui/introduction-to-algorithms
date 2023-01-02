@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Linear Time Maximum Subarray}
+        \begin{algorithmic}
+        \INPUT An array $A[1..n]$ .
+        \OUTPUT A tuple $(p, q, s)$ representing the maximun subarray of $A$ and its summation.
+        \STATE $p = 1, q = 1, s = A[1]$
+        \STATE \COMMENT{$A[p..q]$ is the maximum subarray and s is its summation}
+        \STATE $i = 1, tmp = A[1]$
+        \STATE \COMMENT{tmp is the summation of $A[i..j-1]$}
+        \FOR{$j = 2$ \TO $n$}
+            \IF{$tmp < 0$}
+                \STATE $i = j$
+                \STATE $tmp = A[j]$
+            \ELSE
+                \STATE $tmp = tmp + A[j]$
+            \ENDIF
+            \IF{$tmp > s$}
+                \STATE $p = i, q = j, s = tmp$
+            \ENDIF
+            
+        \ENDFOR
+        \RETURN $(p, q, r)$
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 0//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

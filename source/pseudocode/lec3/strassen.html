@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Strassen Matrix Multiplication}
+        \begin{algorithmic}
+        \INPUT Two $n \times n$ matrix $A$ and $B$ .
+        \OUTPUT A $n \times n$ matrix $C = A \cdot B$ .
+        \PROCEDURE{Strassen}{$A, B$}
+            \IF {$n = 1$}
+                \RETURN $[a_{11} \cdot b_{11}]$
+            \ENDIF
+            \STATE Let $C$ be a new $n \times n$ matrix.
+            \STATE Partition $A$ into $\left[\begin{matrix}A_{11} & A_{12} \\ A_{21} & A_{22} \end{matrix}\right]$ , $B$ into $\left[\begin{matrix}B_{11} & B_{12} \\ B_{21} & B_{22} \end{matrix}\right]$ and $C$ into $\left[\begin{matrix}C_{11} & C_{12} \\ C_{21} & C_{22} \end{matrix}\right]$ .
+            \STATE \COMMENT{$A_{ij}, B_{ij}, C_{ij}$ are $n/2 \times n/2$ matrixs.}
+            \STATE
+            \STATE \COMMENT{calculate ten matrixs of addition or substraction.}
+            \STATE $S_1 = B_{12} - B_{22}$ , $S_2 = A_{11} + A_{12}$ , $S_3 = A_{21} + A_{22}$ , $S_4 = B_{21} - B_{11}$
+            \STATE $S_5 = A_{11} + A_{22}$ , $S_6 = B_{11} + B_{22}$ , $S_7 = A_{12} - A_{22}$ , $S_8 = B_{21} + B_{22}$
+            \STATE $S_9 = A_{11} - A_{21}$ , $S_{10} = B_{11} + B_{12}$
+            \STATE
+            \STATE \COMMENT{calculate seven matrixs of product.}
+            \STATE $P_1 = $ \CALL{Strassen}{$A_{11}, S_1$} , $P_2 = $ \CALL{Strassen}{$S_2, B_{22}$}
+            \STATE $P_3 = $ \CALL{Strassen}{$S_3, B_{11}$} , $P_4 = $ \CALL{Strassen}{$A_{22}, S_4$}
+            \STATE $P_5 = $ \CALL{Strassen}{$S_5, S_6$} , $P_6 = $ \CALL{Strassen}{$S_7, S_8$}
+            \STATE $P_7 = $ \CALL{Strassen}{$S_9, S_{10}$}
+            \STATE
+            \STATE \COMMENT{calculate the result}
+            \STATE $C_{11} = P_5 + P_4 - P_2 + P_6$
+            \STATE $C_{12} = P_1 + P_2$
+            \STATE $C_{21} = P_3 + P_4$
+            \STATE $C_{22} = P_5 + P_1 - P_3 - P_7$
+            \STATE
+            \RETURN $C$
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 1//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

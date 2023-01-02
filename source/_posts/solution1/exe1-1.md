@@ -16,7 +16,7 @@ description: 插入排序以及基础增量算法分析相关的习题解答
 
 ##### Solution
 
-<iframe src="/pseudocode/lec1/linear-search.html" frameborder="no" marginwidth="0" width="100%" height="175px" marginheight="0" scrolling="auto"></iframe>
+<iframe src="/pseudocode/lec1/linear-search.html" frameborder="no" marginwidth="0" width="100%" height="180px" marginheight="0" scrolling="auto"></iframe>
 
 循环不变式：第1-5行循环的每次迭代开始前，不存在下标 $1 \le j < i$ 使得 $A[j] = v$ 。
 

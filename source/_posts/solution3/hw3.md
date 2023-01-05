@@ -42,7 +42,7 @@ $$
 T(n) \le 3c\frac{n}{3}\log(n/3) + \frac{n}{\log n} = cn\log n + (\frac{1}{\log n} - c\log 3)n \le cn\log n
 $$
 
-最后一步需要 $c \ge 1 /\log 3$ 。
+最后一步取 $c \ge 1 /\log 3$ 即可。
 
 再用代入法证明，对于任意 $\varepsilon > 0$ ， $T(n) \ge cn^{1-\varepsilon}$ 。
 

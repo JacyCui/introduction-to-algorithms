@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Random Search}
+        \begin{algorithmic}
+        \INPUT An array $A$ of size $n$ and an element $x$
+        \OUTPUT The index of $x$ in $A$ or $-1$ if $x \notin A$
+        \STATE Let $P$ be an empty array of size $n$ with all zeros.
+        \STATE $c = 0$
+        \WHILE{$c \ne n$}
+            \STATE $i =$ \CALL{Random}{$1, n$}
+            \IF{$A[i] = x$}
+                \RETURN $i$
+            \ENDIF
+            \IF{$P[i] = 0$}
+                \STATE $P[i] = 1$
+                \STATE $c = c + 1$
+            \ENDIF
+        \ENDWHILE
+        \RETURN $-1$
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 0//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

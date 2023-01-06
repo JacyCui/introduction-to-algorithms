@@ -7,7 +7,9 @@ date: 2022-12-15 16:33:54
 
 本站是一个《算法导论》的学习网站，笔者不定期更新视频、PPT、习题以及习题解答等学习资料。如果你想要系统学习“算法”本身，并且不满足于知其然，想要触摸“其所以然”的世界，那么这是一个适合你的网站。
 
-本站的源代码开源于[这个github仓库]()，提问和勘误可以在github上面提交issue，我会及时回应。有其他需求可以联系学生邮箱(201220014@smail.nju.edu.cn)或者私人邮箱(jiacaicui@163.com)。
+本站的源代码开源于[这个github仓库](https://github.com/JacyCui/introduction-to-algorithms.git)，提问和勘误或者更优质简单的题解可以在github上面提交issue，我会及时回应和增补。
+
+有其他需求可以联系学生邮箱(201220014@smail.nju.edu.cn)或者私人邮箱(jiacaicui@163.com)。
 
 ![cover](/about/cover.png)
 

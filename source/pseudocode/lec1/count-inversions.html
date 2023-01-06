@@ -18,60 +18,45 @@
         \OUTPUT The number of inversions in $A$ .
         \STATE \COMMENT{return the number of inversions in $A[p..r]$ and merge sort $A[p..r]$ .}
         \PROCEDURE{MergeCount}{$A, p, r$}
-        \IF{$p < r$}
+            \IF{$p \ge r$}
+            \RETURN $0$
+            \ENDIF
             \STATE $q = \lfloor(p + r)/2\rfloor$
             \STATE $left =$ \CALL{MergeCount}{$A, p, q$}
             \STATE $right =$ \CALL{MergeCount}{$A, q + 1, r$}
             \STATE $cross =$ \CALL{Merge}{$A, p, q, r$}
             \RETURN $left + right + cross$
-        \ENDIF
-        \RETURN $0$
         \ENDPROCEDURE
+        \STATE
         \STATE \COMMENT{merge two subarrays and count the inversion across two subarrays}
         \PROCEDURE{Merge}{$A, p, q, r$}
-        \STATE $count = 0$ \COMMENT{the number of inversions}
-        \STATE $n_1 = q - p + 1$
-        \STATE $n_2 = r - q$
-        \STATE Let $L[1..n_1]$ and $R[1..n_2]$ be two new arrays.
-        \FOR{$i = 1$ \TO $n_1$}
-            \STATE $L[i] = A[p + i - 1]$
-        \ENDFOR
-        \FOR{$j = 1$ \TO $n_2$}
-            \STATE $R[j] = A[q + j]$
-        \ENDFOR
-        \STATE $i = 1$
-        \STATE $j = 1$
-        \STATE $k = p$
-        \WHILE{$i \ne n_1 + 1$ \AND $j \ne n_2 + 1$}
-            \IF{$L[i] \le R[j]$}
-                \STATE $A[k] = L[i]$
-                \STATE $i = i + 1$
-            \ELSE
-                \STATE $A[k] = R[j]$
-                \STATE \COMMENT{This keeps track of the number of inversions}
-                \STATE \COMMENT{between left and right arrays.}
-                \STATE $count = count + j$
-                \STATE $j = j + 1$
-            \ENDIF
-            \STATE $k = k + 1$
-        \ENDWHILE
-        \IF{$i = n_1 + 1$}
-            \FOR{$m = j$ \TO $n_2$}
-                \STATE $A[k] = R[m]$
-                \STATE $k = k + 1$
+            \STATE $n_1 = q - p + 1$
+            \STATE $n_2 = r - q$
+            \STATE Let $L[1..n_1 + 1]$ and $R[1..n_2 + 1]$ be two new arrays.
+            \FOR{$i = 1$ \TO $n_1$}
+                \STATE $L[i] = A[p + i - 1]$
             \ENDFOR
-        \ENDIF
-        \IF{$j = n_2 + 1$}
-            \FOR{$m = i$ \TO $n_1$}
-                \STATE $A[k] = L[m]$
-                \STATE \COMMENT{Tracks inversions once we have exhausted the right array.}
-                \STATE \COMMENT{At this point, every element of the right array contributes an inversion.}
-                \STATE $count = count + n_2$
-                \STATE $k = k + 1$
+            \FOR{$j = 1$ \TO $n_2$}
+                \STATE $R[j] = A[q + j]$
             \ENDFOR
-        \ENDIF
-        \RETURN $count$
+            \STATE $L[n_1 + 1] = \infty$
+            \STATE $R[n_2 + 1] = \infty$
+            \STATE $i = 1$
+            \STATE $j = 1$
+            \STATE $count = 0$ \COMMENT{the number of inversions}
+            \FOR{$k = p$ \TO $r$}
+                \IF{$L[i] \le R[j]$}
+                    \STATE $A[k] = L[i]$
+                    \STATE $i = i + 1$
+                \ELSE
+                    \STATE $count = count + n_1 - i + 1$
+                    \STATE $A[k] = R[j]$
+                    \STATE $j = j + 1$
+                \ENDIF
+            \ENDFOR
+            \RETURN $count$
         \ENDPROCEDURE
+        \STATE
         \STATE \CALL{MergeCount}{$A, 1, n$}
         \end{algorithmic}
         \end{algorithm}

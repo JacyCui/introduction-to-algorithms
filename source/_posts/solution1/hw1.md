@@ -172,9 +172,13 @@ $$
 
 4. 算法伪代码如下：
 
-<iframe src="/pseudocode/lec1/count-inversions.html" frameborder="no" marginwidth="0" width="100%" height="1245px" marginheight="0" scrolling="auto"></iframe>
+<iframe src="/pseudocode/lec1/count-inversions.html" frameborder="no" marginwidth="0" width="100%" height="945px" marginheight="0" scrolling="auto"></iframe>
 
-> 该算法的核心思路是分而治之，先递归地计数半边和后半边的逆序对，然后再借助前后都已经排好序的性质来计数跨越前后的逆序对。
+该算法的核心思路是分而治之，先递归地计数左半边和右半边的逆序对，然后再借助前后都已经排好序的性质来计数跨越中点的逆序对（关键：算法第34行）。
 
 上述算法只在归并排序原本算法之外添加了常数项时间的操作，因此该算法最坏情况依旧只需要 $\Theta(n\log n)$ 的时间。
+
+> 这里补充一下[逆序对计数问题的洛谷模版题链接](https://www.luogu.com.cn/problem/P1908)，读者可以自行编程并提交评测。
+>
+> 注意数据规模，后10个测试样例数据较大，结果需要用64位整数来存，32位整数会溢出，导致WA。
 

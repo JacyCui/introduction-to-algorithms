@@ -12,20 +12,20 @@
 <body>
     <pre id="demo" style="display:none;">
         \begin{algorithm}
-        \caption{Permute By Cyclic}
+        \caption{Random Number Generator}
         \begin{algorithmic}
-        \INPUT an array $A$ of length $n$
-        \OUTPUT a uniform random permutation of $A$
-        \STATE let $B[1..n]$ be a new array
-        \STATE $offset =$ \CALL{Random}{$1, n$}
-        \FOR{$i = 1$ \TO $n$}
-            \STATE $dest = i + offset$
-            \IF{$dest > n$}
-                \STATE $dest = dest - n$
-            \ENDIF
-            \STATE $B[dest] = A[i]$
-        \ENDFOR
-        \RETURN $B$
+        \PROCEDURE{Random}{$a, b$}
+            \STATE $n = \lceil\log(b - a + 1)\rceil$
+            \WHILE{\TRUE}
+                \STATE $result = 0$
+                \FOR{$i = 0$ \TO $n - 1$}
+                    \STATE $result = result$ \& (\CALL{Random}{$0, 1$} << $i$)
+                \ENDFOR
+                \IF{$result \le b - a$}
+                    \RETURN $a + result$
+                \ENDIF
+            \ENDWHILE
+        \ENDPROCEDURE
         \end{algorithmic}
         \end{algorithm}
     </pre>
@@ -36,7 +36,7 @@
             lineNumber: true,
             lineNumberPunc: ':',
             noEnd: false,
-            captionCount: 1//,
+            captionCount: 2//,
             //titlePrefix: "Program"
         };
         pseudocode.renderElement(document.getElementById("demo"), options);                                 

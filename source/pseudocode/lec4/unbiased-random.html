@@ -12,20 +12,15 @@
 <body>
     <pre id="demo" style="display:none;">
         \begin{algorithm}
-        \caption{Permute By Cyclic}
+        \caption{Unbiased Random 0-1 Generator}
         \begin{algorithmic}
-        \INPUT an array $A$ of length $n$
-        \OUTPUT a uniform random permutation of $A$
-        \STATE let $B[1..n]$ be a new array
-        \STATE $offset =$ \CALL{Random}{$1, n$}
-        \FOR{$i = 1$ \TO $n$}
-            \STATE $dest = i + offset$
-            \IF{$dest > n$}
-                \STATE $dest = dest - n$
+        \WHILE{\TRUE}
+            \STATE $a =$ \CALL{BiasedRandom}{}
+            \STATE $b =$ \CALL{BiasedRandom}{}
+            \IF{$a \ne b$}
+                \RETURN $a$
             \ENDIF
-            \STATE $B[dest] = A[i]$
-        \ENDFOR
-        \RETURN $B$
+        \ENDWHILE
         \end{algorithmic}
         \end{algorithm}
     </pre>
@@ -36,7 +31,7 @@
             lineNumber: true,
             lineNumberPunc: ':',
             noEnd: false,
-            captionCount: 1//,
+            captionCount: 3//,
             //titlePrefix: "Program"
         };
         pseudocode.renderElement(document.getElementById("demo"), options);                                 

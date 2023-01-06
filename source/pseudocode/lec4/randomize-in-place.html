@@ -12,20 +12,14 @@
 <body>
     <pre id="demo" style="display:none;">
         \begin{algorithm}
-        \caption{Permute By Cyclic}
+        \caption{Randomize in Place - Modified for Proof}
         \begin{algorithmic}
-        \INPUT an array $A$ of length $n$
-        \OUTPUT a uniform random permutation of $A$
-        \STATE let $B[1..n]$ be a new array
-        \STATE $offset =$ \CALL{Random}{$1, n$}
-        \FOR{$i = 1$ \TO $n$}
-            \STATE $dest = i + offset$
-            \IF{$dest > n$}
-                \STATE $dest = dest - n$
-            \ENDIF
-            \STATE $B[dest] = A[i]$
+        \INPUT An array $A$ of size $n$
+        \OUTPUT A uniform randomized permutation of $A$
+        \STATE swap $A[1]$ with $A[$ \CALL{Random}{$1, n$} $]$
+        \FOR{$i = 2$ \TO $n$}
+            \STATE swap $A[i]$ with $A[$ \CALL{Random}{$i, n$} $]$
         \ENDFOR
-        \RETURN $B$
         \end{algorithmic}
         \end{algorithm}
     </pre>
@@ -36,7 +30,7 @@
             lineNumber: true,
             lineNumberPunc: ':',
             noEnd: false,
-            captionCount: 1//,
+            captionCount: 4//,
             //titlePrefix: "Program"
         };
         pseudocode.renderElement(document.getElementById("demo"), options);                                 

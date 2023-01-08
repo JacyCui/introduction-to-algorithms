@@ -73,7 +73,7 @@ $$
 
 2. 函数 $\lceil\log\log n\rceil!$ 是多项式有界的。
 
-证明：不是一般性，令 $n = 2^{2^k}$ ，则有
+证明：不失一般性，令 $n = 2^{2^k}$ ，则有
 
 $$
 \lceil\log\log n\rceil! = k! = \prod_{i = 1}^{k} i \le \prod_{i = 1}^{k} 2^{2^{i - 1}} = 2^{\sum\limits_{i = 1}^{k} 2^{i - 1}} = 2^{2^k - 1} \le 2^{2^k} = n

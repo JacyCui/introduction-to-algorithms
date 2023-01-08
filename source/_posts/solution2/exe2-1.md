@@ -54,7 +54,7 @@ $$
 \exists c_1 > 0, c_2 > 0, n_0 > 0, \forall n \ge n_0, 0 \le c_1g(n) \le f(n) \le c_2g(n)
 $$
 
-从而 $f(n) = \Omega(g(n))$ 。
+从而 $f(n) = \Theta(g(n))$ 。
 
 #### Problem 3 (教材习题 3.1-7)
 

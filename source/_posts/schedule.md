@@ -14,7 +14,7 @@ top: 10
 |1|算法基础<br/>[`slides`](/slides/lec01-getting-started.pdf) [`video`](https://www.bilibili.com/video/BV1xD4y1V77a/)|[`exe1-1`](/exercise/exe1-1.pdf) [`sol`](/solution1/exe1-1/)<br/>[`exe1-2`](/exercise/exe1-2.pdf) [`sol`](/solution1/exe1-2/)|[`hw1`](/homework/hw1.pdf) [`sol`](/solution1/hw1/)|
 |2|函数的增长<br/>[`slides`](/slides/lec02-growth-of-functions.pdf) [`video`](https://www.bilibili.com/video/BV1vx4y1G7oQ/)|[`exe2-1`](/exercise/exe2-1.pdf) [`sol`](/solution2/exe2-1/)<br/>[`exe2-2`](/exercise/exe2-2.pdf) [`sol`](/solution2/exe2-2/)|[`hw2`](/homework/hw2.pdf) [`sol`](/solution2/hw2/)|
 |3|分治策略<br/>[`slides`](/slides/lec03-divide-and-conquer.pdf) [`video`](https://www.bilibili.com/video/BV1MM411F7Er/)|[`exe3-1`](/exercise/exe3-1.pdf) [`sol`](/solution3/exe3-1/)<br/>[`exe3-2`](/exercise/exe3-2.pdf) [`sol`](/solution3/exe3-2/)|[`hw3`](/homework/hw3.pdf) [`sol`](/solution3/hw3/)|
-|4|概率分析和随机算法<br/><[`slides`](/slides/lec04-probabilistic-analysis-and-randomized-algorithms.pdf) [`video`](https://www.bilibili.com/video/BV1Dd4y1j7n3/)|[`exe4-1`](/exercise/exe4-1.pdf) [`sol`](/solution4/exe4-1/)<br/>[`exe4-2`](/exercise/exe4-2.pdf) [`sol`](/solution4/exe4-2/)|[`hw4`](/homework/hw4.pdf) [`sol`](/solution4/hw4/)|
+|4|概率分析和随机算法<br/>[`slides`](/slides/lec04-probabilistic-analysis-and-randomized-algorithms.pdf) [`video`](https://www.bilibili.com/video/BV1Dd4y1j7n3/)|[`exe4-1`](/exercise/exe4-1.pdf) [`sol`](/solution4/exe4-1/)<br/>[`exe4-2`](/exercise/exe4-2.pdf) [`sol`](/solution4/exe4-2/)|[`hw4`](/homework/hw4.pdf) [`sol`](/solution4/hw4/)|
 
 
 #### 第二部分：排序和顺序统计量

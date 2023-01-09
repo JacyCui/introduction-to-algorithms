@@ -32,7 +32,7 @@ description: 第3讲分治策略课后作业题解答
 
 1. 主定理情况 1 ， $T(n) = \Theta(n^{\log_3 4})$ 。
 
-2. $T(n) = \stackrel{\sim}{\Theta}(n)$ ，$\stackrel{\sim}{\Theta}$ 定义见[作业2](/solution2/hw2/)问题2。
+2. $T(n) = O(n\log n)$ 且对于任意的 $\varepsilon > 0$ ，$T(n) = \Omega(n^{1-\varepsilon})$ 。
 
 首先，用代入法证明 $T(n) \le cn\log n$ 。
 
@@ -54,13 +54,13 @@ $$
 
 倒数第 3 步用的是 $\log n = o(n^\varepsilon)$ （见课本3.2节）；最后一步取 $d \le 1/c$ 即可。
 
-综上： $T(n) = \stackrel{\sim}{\Theta}(n)$ 。
+综上，$T(n) = O(n\log n)$ 且对于任意的 $\varepsilon > 0$ ，$T(n) = \Omega(n^{1-\varepsilon})$ 。
 
 3. 主定理情况 3 ， $T(n) = \Theta(n^2\sqrt{n})$ 。
 
 4. $T(n) = \Theta(n\log n)$ ，根据主定理情况 2 猜测，使用代入法证明。
 
-5. 和第 2 问类似， $T(n) = O(n\log n)$ 且 $T(n) = \Omega(n^{1-\varepsilon})$ ，即 $T(n) = \stackrel{\sim}{\Theta}(n)$ 。
+5. 和第 2 问类似， $T(n) = O(n\log n)$ 且 $\forall \varepsilon > 0, T(n) = \Omega(n^{1-\varepsilon})$ 。
 
 6. $T(n) = \Theta(n)$ ，用代入法即可证明。
 

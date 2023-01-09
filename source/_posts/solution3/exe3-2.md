@@ -115,7 +115,7 @@ $$
 
 ##### Solution
 
-Strassen 算法的复杂度为 $\Theta(n^{\log_27})$ 。用主方法可求得熊教授算法的复杂度为 $\Theta(n^{\log_4a})$ 。如果熊教授的算法要渐近快于 Strassen ，那么需要 $\log_4a < \log_27$ ，解得 $a < 49$ ，于是 $a$ 的最大整数值为 $48$ 。
+Strassen 算法的复杂度为 $\Theta(n^{\log_27})$ 。因为要求 $a$ 的最大值，考虑 $a > 16$ 的情况，用主方法可求得熊教授算法的复杂度为 $\Theta(n^{\log_4a})$ 。如果熊教授的算法要渐近快于 Strassen ，那么需要 $\log_4a < \log_27$ ，解得 $a < 49$ ，于是 $a$ 的最大整数值为 $48$ 。
 
 
 #### Problem 5 (教材习题 4.5-5)
@@ -133,7 +133,7 @@ f(n) = \begin{cases}
 \end{cases}
 $$
 
-满足 $f(n) = \Omega(n^{\log_31}+\varepsilon) = \Omega(n^{\varepsilon})$ 的条件，但是不满足正则条件 $f(n/3) \le cf(n), c<1$ 。
+满足 $f(n) = \Omega(n^{\log_31+\varepsilon}) = \Omega(n^{\varepsilon})$ 的条件，但是不满足正则条件 $f(n/3) \le cf(n), c<1$ 。
 
 取 $n = 3\cdot 2^{i}, i\in\mathbb{N}$ ，有
 

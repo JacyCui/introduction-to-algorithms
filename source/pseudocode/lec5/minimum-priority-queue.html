@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Minimum Priority Queue}
+        \begin{algorithmic}
+        \PROCEDURE{HeapMinimum}{$A$}
+            \RETURN $A[1]$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{HeapExtractMin}{$A$}
+            \IF {$A.\text{heap-size} < 1$}
+                \STATE \textbf{error} "heap underflow"
+            \ENDIF
+            \STATE $min = A[1]$
+            \STATE $A[1] = A[A.\text{heap-size}]$
+            \STATE $A.\text{heap-size} = A.\text{heap-size} - 1$
+            \STATE \CALL{MinHeapify}{$A, 1$}
+            \RETURN $min$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{HeapDecreaseKey}{$A, i, key$}
+            \IF{$key > A[i]$}
+                \STATE \textbf{error} "new key is larger than the current key"
+            \ENDIF
+            \STATE $A[i] = key$
+            \WHILE{$i > 1$ \AND $A[PARENT(i)] > A[i]$}
+                \STATE exchange $A[i]$ with $A[PARENT(i)]$
+                \STATE $i = PARENT(i)$
+            \ENDWHILE
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{MinHeapInsert}{$A, key$}
+            \STATE $A.\text{heap-size} = A.\text{heap-size} + 1$
+            \STATE $A[A.\text{heap-size}] = +\infty$
+            \STATE \CALL{HeapDecreaseKey}{$A, A.\text{heap-size}, key$}
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 0//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

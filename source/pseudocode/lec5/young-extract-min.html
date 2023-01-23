@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Extract Minimum Element of a Young Matrix}
+        \begin{algorithmic}
+        \PROCEDURE{YoungExtractMin}{$Y$}
+            \IF{$Y.\text{row-num} < 1$ \OR $Y.\text{col-num} < 1$}
+                \STATE \textbf{error} "young matrix underflow"
+            \ENDIF
+            \STATE $min = Y[0, 0]$
+            \STATE $Y[0, 0] = \infty$
+            \STATE \CALL{MatrixYounify}{$Y, 0, 0$}
+            \RETURN $min$
+        \ENDPROCEDURE
+        \STATE
+        \STATE \COMMENT{Younify $Y[i..m, j..n]$ when $Y[i + 1..m, j..n]$ and $Y[i..m, j+1..n]$ is young}
+        \PROCEDURE{MatrixYounify}{$Y, i, j$}
+        \STATE $smallest = (i, j)$
+        \IF{$i + 1 < Y.\text{row-num}$ \AND $Y[i + 1, j] < Y[smallest]$}
+            \STATE $smallest = (i + 1, j)$
+        \ENDIF
+        \IF{$j + 1 < Y.\text{col-num}$ \AND $Y[i, j + 1] < Y[smallest]$}
+            \STATE $smallest = (i, j + 1)$
+        \ENDIF
+        \IF{$smallest \ne (i, j)$}
+            \STATE exchange $Y[i, j]$ with $Y[smallest]$
+            \STATE \CALL{MatrixYounify}{$Y, smallest$}
+        \ENDIF
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 3//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

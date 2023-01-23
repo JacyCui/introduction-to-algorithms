@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Young Find}
+        \begin{algorithmic}
+        \INPUT a $m \times n$ young matrix $Y$ and a $key$ to be found
+        \OUTPUT true if $key \in Y$, otherwise false
+        \STATE $i = m$
+        \STATE $j = 1$
+        \WHILE{$i \ge 1$ \AND $j \le n$}
+            \IF{$Y[i, j] > key$}
+                \STATE $i = i - 1$
+            \ELSEIF{$Y[i, j] < key$}
+                \STATE $j = j + 1$
+            \ELSE
+                \RETURN \TRUE
+            \ENDIF
+        \ENDWHILE
+        \RETURN \FALSE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 6//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

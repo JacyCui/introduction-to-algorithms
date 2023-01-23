@@ -21,7 +21,7 @@ top: 10
 
 |讲次|主题|练习题|作业题|
 |:-:|:-:|:-:|:-:|
-|5|堆排序|||
+|5|堆排序<br/>[`slides`](/slides/lec05-heapsort.pdf) [`video`]()|[`exe5-1`](/exercise/exe5-1.pdf) [`sol`](/solution5/exe5-1/)<br/>[`exe5-2`](/exercise/exe5-2.pdf) [`sol`](/solution5/exe5-2/)|[`hw5`](/homework/hw5.pdf) [`sol`](/solution5/hw5/)|
 |6|快速排序|||
 |7|线性时间排序|||
 |8|中位数和顺序统计量|||

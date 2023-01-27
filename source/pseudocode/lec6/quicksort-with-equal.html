@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Quicksort Using Partition Considering Equal Elements}
+        \begin{algorithmic}
+        \PROCEDURE{Quicksort'}{$A, p, r$}
+            \IF{$p < r$}
+                \STATE $(q, t) =$ \CALL{Partition'}{$A, p, r$}
+                \STATE \CALL{Quicksort'}{$A, p, q-1$}
+                \STATE \CALL{Quicksort'}{$A, t+1, r$}
+            \ENDIF
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 2//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

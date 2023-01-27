@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Modified Tail Recursive Quicksort}
+        \begin{algorithmic}
+        \PROCEDURE{ModifiedTailRecursiveQuicksort}{$A, p, r$}
+            \WHILE{$p < r$}
+                \STATE $q =$ \CALL{Partition}{$A, p, r$}
+                \IF{$q < \lfloor (p+r) / 2\rfloor$}
+                    \STATE \CALL{ModifiedTailRecursiveQuicksort}{$A, p, q-1$}
+                    \STATE $p = q + 1$
+                \ELSE
+                    \STATE \CALL{ModifiedTailRecursiveQuicksort}{$A, q+1, r$}
+                    \STATE $r = q - 1$
+                \ENDIF
+            \ENDWHILE
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 0//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

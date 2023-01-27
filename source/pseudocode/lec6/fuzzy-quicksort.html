@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Fuzzy Quicksort}
+        \begin{algorithmic}
+        \INPUT a sequence of $n$ intervals $A$ , where $A[i].a$ and $A[i].b$ denotes the lower and upper bound of the interval
+        \OUTPUT a sorted sequence of input intervals
+        \STATE\CALL{FuzzyQuicksort}{$A, 1, n$}
+        \STATE
+        \PROCEDURE{FuzzyQuicksort}{$A, p, r$}
+            \IF{$p < r$}
+                \STATE $(q, t) =$ \CALL{FuzzyPartition}{$A, p, r$}
+                \STATE \CALL{FuzzyQuicksort}{$A, p, q-1$}
+                \STATE \CALL{FuzzyQuicksort}{$A, t+1, r$}
+            \ENDIF
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{FuzzyPartition}{$A, p, r$}
+            \STATE exchange $A[p]$ with $A[RANDOM(p, r)]$
+            \STATE $x = A[p]$
+            \STATE $q = p$
+            \STATE $t = p$
+            \FOR{$i = p + 1$ \TO $r$}
+                \IF{$A[i].b < x.a$} \COMMENT{interval less than condition}
+                    \STATE exchange $A[q]$ with $A[i]$
+                    \STATE $q = q + 1$
+                    \STATE exchange $A[t+1]$ with $A[i]$
+                    \STATE $t = t + 1$
+                \ELSEIF{$A[i].b \ge x.a$ \AND $A[i].a \le x.b$} \COMMENT{interval equal condition}
+                    \STATE exchange $A[t+1]$ with $A[i]$
+                    \STATE $t = t + 1$
+                \ENDIF
+            \ENDFOR
+            \RETURN $(q, t)$
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 1//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

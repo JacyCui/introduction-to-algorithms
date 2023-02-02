@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Modified Counting Sort with Constant Extra Space}
+        \begin{algorithmic}
+        \INPUT a sequence $A$ of $n$ elements ranging from $0$ to $k$
+        \OUTPUT a sorted sequence $A$
+        \STATE let $B[0..k]$ be a new array initialized with all 0's
+        \STATE let $C[0..k]$ be a new array initialized with all 0's
+        \FOR{$i = 1$ \TO $n$}
+            \STATE $B[A[i]] = B[A[i]] + 1$
+            \STATE $C[A[i]] = C[A[i]] + 1$
+        \ENDFOR
+        \STATE \COMMENT{$B[i], C[i]$ now contains the number of elements equal to $i$}
+        \FOR{$i = 1$ \TO $k$}
+            \STATE $C[i] = C[i] + C[i-1]$
+        \ENDFOR
+        \STATE \COMMENT{$C[i]$ now contains the number of elements less than or equal to $i$}
+        \FOR{$i = 0$ \TO $k$}
+            \WHILE{$B[i] > 0$}
+                \STATE $B[i] = B[i] - 1$
+                \STATE $A[C[i] - B[i]] = i$
+            \ENDWHILE
+        \ENDFOR
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 0//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

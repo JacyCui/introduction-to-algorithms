@@ -24,7 +24,7 @@ top: 10
 |5|堆排序<br/>[`slides`](/slides/lec05-heapsort.pdf) [`video`](https://www.bilibili.com/video/BV1mT411y7Hx/)|[`exe5-1`](/exercise/exe5-1.pdf) [`sol`](/solution5/exe5-1/)<br/>[`exe5-2`](/exercise/exe5-2.pdf) [`sol`](/solution5/exe5-2/)|[`hw5`](/homework/hw5.pdf) [`sol`](/solution5/hw5/)|
 |6|快速排序<br/>[`slides`](/slides/lec06-quicksort.pdf) [`video`](https://www.bilibili.com/video/BV1Qv4y167Jb/)|[`exe6`](/exercise/exe6.pdf) [`sol`](/solution6/exe6/)|[`hw6-1`](/homework/hw6-1.pdf) [`sol`](/solution6/hw6-1/)<br/>[`hw6-2`](/homework/hw6-2.pdf) [`sol`](/solution6/hw6-2/)|
 |7|线性时间排序<br/>[`slides`](/slides/lec07-sorting-in-linear-time.pdf) [`video`](https://www.bilibili.com/video/BV1yj411T7pJ/)|[`exe7-1`](/exercise/exe7-1.pdf) [`sol`](/solution7/exe7-1/)<br/>[`exe7-2`](/exercise/exe7-2.pdf) [`sol`](/solution7/exe7-2/)|[`hw7-1`](/homework/hw7-1.pdf) [`sol`](/solution7/hw7-1/)<br/>[`hw7-2`](/homework/hw7-2.pdf) [`sol`](/solution7/hw7-2/)|
-|8|中位数和顺序统计量<br/>[`slides`](/slides/lec08-medians-and-order-statistics.pdf) [`video`]()|[`exe8-1`](/exercise/exe8-1.pdf) [`sol`](/solution8/exe8-1/)<br/>[`exe8-2`](/exercise/exe8-2.pdf) [`sol`](/solution8/exe8-2/)|[`hw8`](/homework/hw8.pdf) [`sol`](/solution8/hw8/)|
+|8|中位数和顺序统计量<br/>[`slides`](/slides/lec08-medians-and-order-statistics.pdf) [`video`](https://www.bilibili.com/video/BV1yA411z7f1/)|[`exe8-1`](/exercise/exe8-1.pdf) [`sol`](/solution8/exe8-1/)<br/>[`exe8-2`](/exercise/exe8-2.pdf) [`sol`](/solution8/exe8-2/)|[`hw8`](/homework/hw8.pdf) [`sol`](/solution8/hw8/)|
 
 
 #### 第三部分：数据结构

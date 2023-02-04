@@ -27,7 +27,7 @@ description: 最大子数组问题和矩阵乘法相关的习题解答
 
 算法伪代码如下：
 
-<iframe src="/pseudocode/lec3/linear-time-maximum-subarray.html" frameborder="no" marginwidth="0" width="100%" height="420px" marginheight="0" scrolling="auto"></iframe>
+<iframe src="/pseudocode/lec3/linear-time-maximum-subarray.html" frameborder="no" marginwidth="0" width="100%" height="440px" marginheight="0" scrolling="auto"></iframe>
 
 从第 5 到 15 行的 **for** 循环不难看出，该算法的运行时间为 $\Theta(n)$ ，这是一个线性时间的算法。
 

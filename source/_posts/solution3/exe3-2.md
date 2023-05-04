@@ -15,10 +15,10 @@ description: 递归式相关的习题解答
 1. 先证上界。假设 $T(m) \le cm^{\log_34} - dm$ 对 $m < n$ 成立，则 
 
 $$
-T(n) \le 4(c(\frac{n}{3})^{\log_34} - d\frac{n}{3}) + n = cn^{\log_34} - (\frac{4d}{3} - 1)n \le cn^{\log_34}
+T(n) \le 4(c(\frac{n}{3})^{\log_34} - d\frac{n}{3}) + n = cn^{\log_34} - (\frac{4d}{3} - 1)n \le cn^{\log_34} - dn
 $$
 
-其中，最后一步在 $d \ge 3/4$ 时成立。于是 $T(n) = O(n^{\log_34})$ 。
+其中，最后一步在 $d \ge 3$ 时成立。于是 $T(n) = O(n^{\log_34})$ 。
 
 再证下界。假设 $T(m) \ge cm^{\log_34}$ 对 $m < n$ 成立，则 
 

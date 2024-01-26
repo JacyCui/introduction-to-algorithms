@@ -46,5 +46,8 @@ date: 2023-2-6 12:54:54
 
     - 英文原文：Show that it can also find the $i - 1$ smaller elements and the $n - i$ larger elements without performing any additional comparisons.
 
-- 第 128 页第 16 行最后的 $MAXIMUM$ 改为 $MINIMUM$。
+- 第 128 页第 15 行最后的“具有相同关键字的集合”改成“关键字不明确的集合”，第 16 行最后的 $MAXIMUM$ 改为 $MINIMUM$。
+
+    - 英文原文：In some situations, we can extend the queries $SUCCESSOR$ and $PREDECESSOR$ so that they apply to sets with nondistinct keys. For a set on $n$ keys, the normal presumption is that a call to $MINIMUM$ followed by $n - 1$ calls to $SUCCESSOR$ enumerates the elements in the set in sorted order.
+
 

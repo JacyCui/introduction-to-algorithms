@@ -46,5 +46,5 @@ date: 2023-2-6 12:54:54
 
     - 英文原文：Show that it can also find the $i - 1$ smaller elements and the $n - i$ larger elements without performing any additional comparisons.
 
-
+- 第 128 页第 16 行最后的 $MAXIMUM$ 改为 $MINIMUM$。
 

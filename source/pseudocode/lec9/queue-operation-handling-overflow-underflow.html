@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Queue Handling Overflow and Underflow}
+        \begin{algorithmic}
+        \REQUIRE $Q$ is an array of length $Q.length$ indexed from $1$ with two attributes
+                 $Q.head$ and $Q.tail$ initialized to be $1$
+        \ENSURE Implementation of queue operations that handle overflow and underflow
+        \STATE \COMMENT {Returns whether $Q$ is full.}
+        \PROCEDURE{QueueFull}{$Q$}
+            \IF{$Q.head == Q.tail + 1$ \OR $Q.head == 1$ \AND $Q.tail == Q.length$}
+                \RETURN \TRUE
+            \ENDIF
+            \RETURN \FALSE
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Enqueue}{$Q, x$}
+            \IF{\CALL{QueueFull}{$Q$}}
+                \STATE \textbf{error} "overflow"
+            \ELSE
+                \STATE $Q[Q.tail] = x$
+                \IF{$Q.tail == Q.length$}
+                    \STATE $Q.tail = 1$
+                \ELSE
+                    \STATE $Q.tail = Q.tail + 1$
+                \ENDIF
+            \ENDIF
+        \ENDPROCEDURE
+        \STATE
+        \STATE \COMMENT {Returns whether $Q$ is empty.}
+        \PROCEDURE{QueueEmpty}{$Q$}
+            \IF{$Q.head == Q.tail$}
+                \RETURN \TRUE
+            \ENDIF
+            \RETURN \FALSE
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Dequeue}{$Q$}
+            \IF{\CALL{QueueEmpty}{$Q$}}
+                \STATE \textbf{error} "underflow"
+            \ELSE
+                \STATE $x = Q[Q.head]$
+                \IF{$Q.head == Q.length$}
+                    \STATE $Q.head = 1$
+                \ELSE
+                    \STATE $Q.head = Q.head + 1$
+                \ENDIF
+                \RETURN $x$
+            \ENDIF
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 0//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

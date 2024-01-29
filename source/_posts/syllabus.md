@@ -1,7 +1,7 @@
 ---
-title: 【置顶】算法导论学习计划
+title: 【置顶】课程大纲
 date: 2022-12-14 21:04:00
-description: 一份学习算法导论的全面规划和资料集
+description: 本网站提供的所有资源的汇总
 top: 10
 ---
 
@@ -31,7 +31,7 @@ top: 10
 
 |讲次|主题|练习题|作业题|
 |:-:|:-:|:-:|:-:|
-|9|基本数据结构|||
+|9|基本数据结构<br/>[`slides`](/slides/lec09-elementary-data-structures.pdf) [`video`]()|[`exe9-1`](/exercise/exe9-1.pdf) [`sol`](/solution9/exe9-1/)<br/>[`exe9-2`](/exercise/exe9-2.pdf) [`sol`](/solution9/exe9-2/)|[`hw9`](/homework/hw9.pdf) [`sol`](/solution9/hw9/)|
 |10|散列表|||
 |11|二叉搜索树|||
 |12|红黑树|||

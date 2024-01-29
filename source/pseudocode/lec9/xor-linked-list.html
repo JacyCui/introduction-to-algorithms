@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Doubly Linked List with a Sentinel Implemented Using XOR}
+        \begin{algorithmic}
+        \REQUIRE $L.nil$ is a dummy sentinel node; $L.head$ points to the list head, 
+            which conceptually is $L.nil.next$ .
+        \OUTPUT Operations on $L$ using only $x.np$ pointer for each node $x$.
+        \PROCEDURE{Search}{$L, k$}
+            \STATE $p = L.nil$
+            \STATE $x = L.head$
+            \WHILE{$x \ne L.nil$ \AND $x.key \ne k$}
+                \STATE $tmp = x$
+                \STATE $x = p \oplus x.np$
+                \STATE $p = tmp$
+            \ENDWHILE
+            \RETURN $x$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Insert}{$L, x$}
+            \STATE $L.head.np = x \oplus (L.head.np \oplus L.nil)$ \COMMENT{$x \oplus L.head.next$}
+            \STATE $x.np = L.nil \oplus L.head$
+            \STATE $L.nil.np = (L.nil.np \oplus L.head) \oplus x$ \COMMENT{$L.nil.prev \oplus x$}
+            \STATE $L.head = x$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Delete}{$L, x$}
+            \STATE $p = L.nil$
+            \STATE $y = L.head$
+            \WHILE{$y \ne L.nil$}
+                \IF{$y == x$}
+                    \STATE $z = y.np \oplus p$ \COMMENT{$z = y.next$}
+                    \STATE $z' = z.np \oplus y$ \COMMENT{$z' = y.next.next$}
+                    \STATE $p' = p.np \oplus y$ \COMMENT{$p = y.prev, p' = y.prev.prev$}
+                    \STATE $z = p \oplus z'$
+                    \STATE $p = p' \oplus z$
+                    \IF{$L.head = y$}
+                        \STATE $L.head = z$
+                    \ENDIF
+                \ELSE
+                    \STATE $tmp = y$
+                    \STATE $y = p \oplus x.np$
+                    \STATE $p = tmp$
+                \ENDIF
+            \ENDWHILE
+            \STATE \textbf{error} "x doesn't exist in this list"
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Reverse}{$L$}
+            \STATE $L.head = L.nil.np \oplus L.head$
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 7//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

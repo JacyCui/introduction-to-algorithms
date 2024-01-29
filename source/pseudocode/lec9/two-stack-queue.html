@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Queue Implemented using Two Stacks}
+        \begin{algorithmic}
+        \REQUIRE $S_1$ and $S_2$ are two stacks.
+        \ENSURE Implementation of queue operations with $S_1$ and $S_2$ .
+        \PROCEDURE{Enqueue}{$S_1, S_2, x$}
+            \STATE \CALL{Push}{$S_2, x$}
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Dequeue}{$S_1, S_2$}
+            \IF{\CALL{StackEmpty}{$S_1$}}
+                \WHILE{\NOT \CALL{StackEmpty}{$S_2$}}
+                    \STATE $x =$ \CALL{Pop}{$S_2$}
+                    \STATE \CALL{Push}{$S_1, x$}
+                \ENDWHILE
+            \ENDIF
+            \RETURN \CALL{Pop}{$S_1$}
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 2//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

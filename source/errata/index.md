@@ -50,4 +50,8 @@ date: 2023-2-6 12:54:54
 
     - 英文原文：In some situations, we can extend the queries $SUCCESSOR$ and $PREDECESSOR$ so that they apply to sets with nondistinct keys. For a set on $n$ keys, the normal presumption is that a call to $MINIMUM$ followed by $n - 1$ calls to $SUCCESSOR$ enumerates the elements in the set in sorted order.
 
+- 第 130 页图 10-1 注解中“修改后的 $PUSH$ 和 $POP$ 操作”改成“修改操作 $PUSH$ 和 $POP$ ”。
+
+    - 英文原文：the effects of the modifying operations $PUSH$ and $POP$ 。
+
 

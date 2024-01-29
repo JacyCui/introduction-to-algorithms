@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Stack Implemented using Two Queues}
+        \begin{algorithmic}
+        \REQUIRE $Q_1$ and $Q_2$ are two queues.
+        \ENSURE Implementation of stack operations with $Q_1$ and $Q_2$ .
+        \STATE \COMMENT {Calculate the number of elements in a queue}
+        \PROCEDURE{QueueSize}{$Q$}
+            \IF{$Q.head \le Q.tail$}
+                \RETURN $Q.tail - Q.head$
+            \ENDIF
+            \RETURN $Q.length + Q.tail - Q.head$
+        \ENDPROCEDURE
+        \STATE
+        \STATE $Q_a = Q_1$ \COMMENT{the active queue}
+        \STATE $Q_i = Q_2$ \COMMENT{the inactive queue}
+        \STATE \COMMENT{Swap the active and inactive queue}
+        \PROCEDURE{Toggle}{}
+            \STATE $tmp = Q_a$
+            \STATE $Q_a = Q_i$
+            \STATE $Q_i = tmp$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Push}{$x$}
+            \STATE \CALL{Enqueue}{$Q_a, x$}
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Pop}{}
+            \WHILE{\CALL{QueueSize}{$Q_a$} $>1$}
+                \STATE $x =$ \CALL{Dequeue}{$Q_a$}
+                \STATE \CALL{Enqueue}{$Q_i, x$}
+            \ENDWHILE
+            \STATE \CALL{Toggle}{}
+            \RETURN \CALL{Dequeue}{$Q_i$}
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 3//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

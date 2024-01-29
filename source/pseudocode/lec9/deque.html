@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Double Ended Queue}
+        \begin{algorithmic}
+        \REQUIRE $Q$ is an array of length $Q.length$ indexed from $1$ with two attributes
+                 $Q.head$ and $Q.tail$ initialized to be $1$
+        \ENSURE Implementation of deque operations that handle overflow and underflow
+        \STATE \COMMENT {Inserts elements to the front of deque.}
+        \PROCEDURE{HeadEnqueue}{$Q, x$}
+            \IF{\CALL{QueueFull}{$Q$}}
+                \STATE \textbf{error} "overflow"
+            \ELSE
+                \IF{$Q.head == 1$}
+                    \STATE $Q.head = Q.length$
+                \ELSE
+                    \STATE $Q.head = Q.head - 1$
+                    \STATE $Q[Q.head] = x$
+                \ENDIF
+            \ENDIF
+        \ENDPROCEDURE
+        \STATE
+        \STATE \COMMENT {Inserts elements to the back of deque.}
+        \PROCEDURE{TailEnqueue}{$Q, x$}
+            \IF{\CALL{QueueFull}{$Q$}}
+                \STATE \textbf{error} "overflow"
+            \ELSE
+                \STATE $Q[Q.tail] = x$
+                \IF{$Q.tail == Q.length$}
+                    \STATE $Q.tail = 1$
+                \ELSE
+                    \STATE $Q.tail = Q.tail + 1$
+                \ENDIF
+            \ENDIF
+        \ENDPROCEDURE
+        \STATE
+        \STATE \COMMENT {Deletes elements from the front of deque.}
+        \PROCEDURE{HeadDequeue}{$Q$}
+            \IF{\CALL{QueueEmpty}{$Q$}}
+                \STATE \textbf{error} "underflow"
+            \ELSE
+                \STATE $x = Q[Q.head]$
+                \IF{$Q.head == Q.length$}
+                    \STATE $Q.head = 1$
+                \ELSE
+                    \STATE $Q.head = Q.head + 1$
+                \ENDIF
+                \RETURN $x$
+            \ENDIF
+        \ENDPROCEDURE
+        \STATE
+        \STATE \COMMENT {Deletes elements from the back of deque.}
+        \PROCEDURE{TailDequeue}{$Q$}
+            \IF{\CALL{QueueEmpty}{$Q$}}
+                \STATE \textbf{error} "underflow"
+            \ELSE
+                \IF{$Q.tail == 1$}
+                    \STATE $Q.tail = Q.length$
+                \ELSE
+                    \STATE $Q.tail = Q.tail - 1$
+                \ENDIF
+                \RETURN $Q[Q.tail]$
+            \ENDIF
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 1//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

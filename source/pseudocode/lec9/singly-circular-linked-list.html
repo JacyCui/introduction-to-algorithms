@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Singly Circular Linked List}
+        \begin{algorithmic}
+        \ENSURE Implementation of dictionary operations with singly circular linked list
+        \PROCEDURE{Insert}{$L, x$}
+            \STATE $x.next = L.nil.next$
+            \STATE $L.nil.next = L$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Delete}{$L, x$}
+            \STATE $p = L.nil$
+            \WHILE{$p.next \ne x$}
+                \IF{$p.next == L.nil$}
+                    \STATE \textbf{error} "$x$ doesn't exist in $L$"
+                \ENDIF
+                \STATE $p = p.next$
+            \ENDWHILE
+            \STATE $p.next = x.next$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Search}{$L, k$}
+            \STATE $x = L.nil.next$
+            \WHILE{$x \ne L.nil$ \AND $x.key \ne k$}
+                \STATE $x = x.next$
+            \ENDWHILE
+            \RETURN $x$
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 4//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

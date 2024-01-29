@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Binary Tree Traversal Nonrecursive}
+        \begin{algorithmic}
+        \REQUIRE a binary tree $T$
+        \ENSURE print all keys appearing in $T$
+        \STATE Let $S$ be a stack
+        \STATE \CALL{Push}{$S, T.root$}
+        \WHILE{\NOT \CALL{StackEmpty}{$S$}}
+            \STATE $x =$ \CALL{Pop}{$S$}
+            \IF{$x == NIL$}
+                \CONTINUE
+            \ENDIF
+            \PRINT $x.key$
+            \STATE \CALL{Push}{$x.right$}
+            \STATE \CALL{Push}{$x.left$}
+        \ENDWHILE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 3//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

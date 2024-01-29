@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Binary Tree Traversal Nonrecursive with Constant Space}
+        \begin{algorithmic}
+        \REQUIRE a binary tree $T$
+        \ENSURE print all keys appearing in $T$
+        \STATE $prev = NIL$
+        \STATE $x = T.root$
+        \WHILE{$x \ne NIL$}
+            \IF{$prev == x.p$} \COMMENT{ $T.root.p$ is $NIL$}
+                \PRINT $x.key$
+                \STATE $prev = x$
+                \IF{$x.left \ne NIL$}
+                    \STATE $x = x.left$
+                \ELSEIF{$x.right \ne NIL$}
+                    \STATE $x = x.right$
+                \ELSE
+                    \STATE $x = x.p$
+                \ENDIF
+            \ELSEIF{$prev == x.left$ \AND $x.right \ne NIL$}
+                \STATE $prev = x$
+                \STATE $x = x.right$
+            \ELSE
+                \STATE $prev = x$
+                \STATE $x = x.p$
+            \ENDIF
+        \ENDWHILE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 5//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

@@ -54,7 +54,7 @@ description: 栈、队列和链表相关的习题解答
 
 #### Problem 5 (教材习题 10.2-5)
 
-使用单向循环链表实现字典操作 $INSERT$ 、 $DELETE$ 和 $SEARCH$ ，并给出所写过程的运行时间。
+使用单向循环链表实现字典操作 INSERT 、 DELETE 和 SEARCH ，并给出所写过程的运行时间。
 
 ##### Solution
 

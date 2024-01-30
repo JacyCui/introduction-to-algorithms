@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Mergable Heap Implemented with Unsorted List}
+        \begin{algorithmic}
+        \PROCEDURE{MakeHeap}{}
+            \STATE Let $L$ be an empty doubly linked list with a sentinel node,
+                i.e. $L.nil.prev = L.nil.next = L.nil$
+            \RETURN $L$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Insert}{$L, x$}
+            \STATE $x.prev = L.nil$
+            \STATE $x.next = L.nil.next$
+            \STATE $L.nil.next.prev = x$
+            \STATE $L.nil.next = x$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Minimum}{$L$}
+            \IF{$L.nil.next = L.nil$}
+                \RETURN $L.nil$
+            \ENDIF
+            \STATE $x = L.nil.next$
+            \STATE $p = x$
+            \WHILE{$p \ne L.nil$}
+                \IF{$p.key < x.key$}
+                    \STATE $x = p$
+                \ENDIF
+                \STATE $p = p.next$
+            \ENDWHILE
+            \RETURN $x$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{ExtractMin}{$L$}
+            \STATE $x =$ \CALL{Minimum}{$L$}
+            \IF{$x \ne L.nil$}
+                \STATE $x.prev.next = x.next$
+                \STATE $x.next.prev = x.prev$
+            \ENDIF
+            \RETURN $x$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Union}{$L_1, L_2$}
+            \STATE $L_1.nil.prev.next = L_2.nil.next$
+            \STATE $L_2.nil.next.prev = L_1.nil.prev$
+            \STATE $L_2.nil.prev.next = L_1.nil$
+            \STATE $L_1.nil.prev = L_2.nil.prev$
+            \RETURN $L_1$
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 1//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

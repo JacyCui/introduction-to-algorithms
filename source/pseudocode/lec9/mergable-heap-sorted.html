@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!-- Setup KaTeX -->
+    <script src="/pseudocode/katex.js" type="text/javascript"></script>
+    <!-- Pseudocode -->
+    <link rel="stylesheet" href="/pseudocode/pseudocode.css" type="text/css">
+    <script src="/pseudocode/pseudocode.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <pre id="demo" style="display:none;">
+        \begin{algorithm}
+        \caption{Mergable Heap Implemented with Sorted List}
+        \begin{algorithmic}
+        \PROCEDURE{MakeHeap}{}
+            \STATE Let $L$ be an empty singly linked list, i.e. $L.head$ is $NIL$
+            \RETURN $L$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Insert}{$L, x$}
+            \IF{$L.head == NIL$ \OR $x.key \le L.head.key$}
+                \STATE $x.next = L.head$
+                \STATE $L.head = x$
+            \ELSE
+                \STATE $prev = L.head$
+                \STATE $cur = L.head.next$
+                \WHILE{$cur \ne NIL$ \AND $x.key > cur.key$}
+                    \STATE $prev = cur$
+                    \STATE $cur = cur.next$
+                \ENDWHILE
+                \STATE $prev.next = x$
+                \STATE $x.next = cur$
+            \ENDIF
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Minimum}{$L$}
+            \RETURN $L.head$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{ExtractMin}{$L$}
+            \IF{$L.head == NIL$}
+                \RETURN $NIL$
+            \ENDIF
+            \STATE $x = L.head$
+            \STATE $L.head = x.next$
+            \RETURN $x$
+        \ENDPROCEDURE
+        \STATE
+        \PROCEDURE{Union}{$L_1, L_2$}
+            \IF{$L_1.head == NIL$}
+                \RETURN $L_2$
+            \ELSEIF{$L_2.head == NIL$}
+                \RETURN $L_1$
+            \ELSE
+                \STATE $p_1 = L_1.head$
+                \STATE $p_2 = L_2.head$
+                \STATE Let $L$ be an empty singly linked list, i.e. $L.head$ is $NIL$.
+                \IF{$p_1.key < p_2.key$}
+                    \STATE $L.head = p_1$
+                    \STATE $p_1 = p_1.next$
+                \ELSE
+                    \STATE $L.head = p_2$
+                    \STATE $p_2 = p_2.next$
+                \ENDIF
+                \STATE $tail = L.head$
+                \WHILE{$p_1 \ne NIL$ \AND $p_2 \ne NIL$}
+                    \IF{$p_1.key < p_2.key$}
+                        \STATE $tail.next = p_1$
+                        \STATE $tail = p_1$
+                        \STATE $p_1 = p_1.next$
+                    \ELSE
+                        \STATE $tail.next = p_2$
+                        \STATE $tail = p_2$
+                        \STATE $p_2 = p_2.next$
+                    \ENDIF
+                \ENDWHILE
+                \IF{$p_1 \ne NIL$}
+                    \STATE $tail.next = p_1$
+                \ELSEIF{$p_2 \ne NIL$}
+                    \STATE $tail.next = p_2$
+                \ENDIF
+                \RETURN $L$
+            \ENDIF
+        \ENDPROCEDURE
+        \end{algorithmic}
+        \end{algorithm}
+    </pre>
+    <script>
+        let options = {
+            indentSize: '1.4em',
+            commentDelimiter: ' // ',
+            lineNumber: true,
+            lineNumberPunc: ':',
+            noEnd: false,
+            captionCount: 0//,
+            //titlePrefix: "Program"
+        };
+        pseudocode.renderElement(document.getElementById("demo"), options);                                 
+    </script>
+</body>
+</html>

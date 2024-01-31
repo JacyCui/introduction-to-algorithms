@@ -31,7 +31,7 @@ top: 10
 
 |讲次|主题|练习题|作业题|
 |:-:|:-:|:-:|:-:|
-|9|基本数据结构<br/>[`slides`](/slides/lec09-elementary-data-structures.pdf) [`video`]()|[`exe9-1`](/exercise/exe9-1.pdf) [`sol`](/solution9/exe9-1/)<br/>[`exe9-2`](/exercise/exe9-2.pdf) [`sol`](/solution9/exe9-2/)|[`hw9`](/homework/hw9.pdf) [`sol`](/solution9/hw9/)|
+|9|基本数据结构<br/>[`slides`](/slides/lec09-elementary-data-structures.pdf) [`video`](https://www.bilibili.com/video/BV15U421Z7tm/)|[`exe9-1`](/exercise/exe9-1.pdf) [`sol`](/solution9/exe9-1/)<br/>[`exe9-2`](/exercise/exe9-2.pdf) [`sol`](/solution9/exe9-2/)|[`hw9`](/homework/hw9.pdf) [`sol`](/solution9/hw9/)|
 |10|散列表|||
 |11|二叉搜索树|||
 |12|红黑树|||
